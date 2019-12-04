@@ -22,8 +22,7 @@ presentational components, that are:
 
 ## Caveats
 
-1. This checklist is aimed at components that are part of an organisation's
-   component library or wider design system where the design is known.
+1. These best practices target components that are part of an organisation's component library or broader design system where the design is known.
 2. All code snippets are from the [React library](https://reactjs.org/).
    However, this checklist is library/framework-agnostic. Meaning it can apply
    to any component architecture, including [Web
@@ -52,30 +51,25 @@ Consider these components being rendered in a view layer:
 
 There needs to be `40px` of space between each component. We can easily achieve
 this by adding `margin-bottom: 40px;` to each of the component's root element.
-However, doing that would be short sighted as it now means all
-components come with rendering concerns outside of themselves. What happens when
-the `<Pagination>` component is used to paginate a different component that has
-different spacing requirements, or none at all? What happens when the
+However, that would be short sighted as the
+components now have rendering concerns outside of themselves. What happens when
+the `<Pagination>` component is used to paginate a different component where the
+spacing requirements are different? What happens when the
 `<Pagination>` component is conditionally rendered based on how much data is
 displayed in the `<SearchResults>` component?
 
-Whenever a component has baked in external spacing capabilities they become dependent on particular
-component configurations which goes against one of the fundamental principls of
-UI component development, which is:
-
-> All components are 100% self-contained making them **reusable** and **portable**
-
-When a component only needs to worry about its own spacing concerns, in other
-words, only the spacing happening within itself (its content, padding, and border areas, see the
-next section for more context) then they can be completely context agnostic all
-the while not giving a damn where they're placed in a component tree.
+When a component needs only worry about its own spacing concerns. In other
+words, the spacing that is happening only within itself, which technically means
+its _content_, _padding_, and _border_ areas (see the next section:
+[Why `margin` Specifically?](#why-margin-specifically) for more
+context). Then they are free to be inserted into any component tree.
 
 #### Why `margin` Specifically?
 
 In CSS, all elements are rectangular boxes that adhere to the [CSS Box
 Model](https://www.w3.org/TR/css-box-3/#box-model). Each box is made up of the
 following four areas: **_margin_**, **_border_**, **_padding_**, and
-**_content_**. If you open up a browser's developer tools you can see a visual
+**_content_**. If you open up a browser's developer tools, you can see a visual
 representation of this. For example, in Firefox:
 
 <img src="images/Firefox&#32;dev&#32;tools&#32;box&#32;model.png" width="326" />
@@ -87,15 +81,14 @@ has this to say:
 >The **margin** area, bounded by the margin edge, extends the border area to
 include an empty area used to separate the element from its neighbors.
 
-The key part being: _"used to separate the element from its neighbors"_ because
+The critical part being: _"used to separate the element from its neighbors"_ because
 it's the `margin` property that is used to create space between components. As
 the CSS `background` properties do not apply to the margin area, meaning it's
 always transparent, we can say that this space is "external" to a component.
 
 ### The Exception(s)
 
-1. Does not apply to layout components.
-2. Does not apply to sepecific component compositions such as forms.
+TBD
 
 ### More Reading
 
