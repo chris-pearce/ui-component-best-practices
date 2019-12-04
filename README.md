@@ -62,7 +62,7 @@ When a component needs only worry about its own spacing concerns. In other
 words, the spacing that is happening only within itself, which technically means
 its _content_, _padding_, and _border_ areas (see the next section:
 [Why `margin` Specifically?](#why-margin-specifically) for more
-context). Then they are free to be inserted into any component tree.
+context). Then they are free to be inserted into any component tree or UI context.
 
 #### Why `margin` Specifically?
 
