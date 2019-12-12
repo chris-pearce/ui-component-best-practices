@@ -1,0 +1,11 @@
+{
+  "editor.tabSize": 2,
+  "eslint.packageManager": "yarn",
+  "files.trimTrailingWhitespace": true,
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.toc.githubCompatibility": true,
+  "markdown.extension.toc.unorderedList.marker": "-",
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+  }
+}
